@@ -1,0 +1,14 @@
+config-cat:
+  sdk-key: GRbZCAbLN0-Ip9vQvHHGTg/FGehI9MhEEmSaA4fgDXb_g
+
+spring:
+  rabbitmq:
+    publisher-confirm: true
+    publisher-confirm-type: correlated
+    publisher-return: true
+    template:
+      mandatory: true
+    port: 5672
+    username: guest
+    password: guest
+    host: localhost
