@@ -14,7 +14,9 @@ class ConfigCatConfiguration(
     val sdkKey: String,
 
     @Lazy
-    private val rabbitListenerSubscriberCoordinator: RabbitListenerSubscriberCoordinator
+    private val rabbitListenerSubscriberCoordinator: RabbitListenerSubscriberCoordinator,
+    @Lazy
+    private val sqsListenerSubscriberCoordinator: SqsListenerSubscriberCoordinator
 ) {
     @Bean
     fun configCatClient(): ConfigCatClient {
@@ -22,6 +24,7 @@ class ConfigCatConfiguration(
             .newBuilder()
             .mode(PollingModes.autoPoll(10) {
                 rabbitListenerSubscriberCoordinator.notifyFeatureFlagChange()
+                sqsListenerSubscriberCoordinator.notifyFeatureFlagChange()
             })
             .logLevel(LogLevel.INFO)
             .build(sdkKey)

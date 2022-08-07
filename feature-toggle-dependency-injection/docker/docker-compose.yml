@@ -1,0 +1,36 @@
+version: "3.1"
+
+networks:
+  oms-poc:
+    driver: bridge
+
+services:
+  localstack:
+    container_name: localstack
+    image: localstack/localstack
+    networks:
+      - oms-poc
+    ports:
+      - "4566:4566"
+      - "4571:4571"
+    environment:
+      - SERVICES=sqs,s3
+      - DEBUG=${DEBUG- }
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - AWS_DEFAULT_REGION=us-east-1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./aws:/docker-entrypoint-initaws.d/
+
+  rabbitmq:
+    image: rabbitmq:3.8.6-management
+    container_name: rabbitmq
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+      - oms-poc
+    ports:
+      - 5672:5672
+      - 15672:15672

@@ -23,6 +23,8 @@ dependencies {
 	implementation("com.configcat:configcat-java-client:7.1.3")
 	implementation("org.springframework.boot:spring-boot-starter-amqp")
 	implementation("org.slf4j:slf4j-api:1.7.25")
+	implementation("io.awspring.cloud:spring-cloud-aws-dependencies:2.4.2")
+	implementation("org.springframework.cloud:spring-cloud-starter-aws-messaging:2.2.6.RELEASE")
 
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
