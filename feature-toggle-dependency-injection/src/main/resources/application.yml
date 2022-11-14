@@ -25,6 +25,8 @@ spring:
     username: guest
     password: guest
     host: localhost
+    listener:
+      prefetch: 2
 
 logging:
   level:

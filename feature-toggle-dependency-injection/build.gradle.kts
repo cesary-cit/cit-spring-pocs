@@ -16,7 +16,6 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -25,7 +24,6 @@ dependencies {
 	implementation("org.slf4j:slf4j-api:1.7.25")
 	implementation("io.awspring.cloud:spring-cloud-aws-dependencies:2.4.2")
 	implementation("org.springframework.cloud:spring-cloud-starter-aws-messaging:2.2.6.RELEASE")
-
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

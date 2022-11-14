@@ -22,5 +22,6 @@ class OrderListener(
     )
     override fun consume(message: Message) {
         logger.info("ORDER LISTENER - ${String(message.body)}")
+        Thread.sleep(10000)
     }
 }

@@ -4,19 +4,19 @@ import br.poc.domain.Rate
 import br.poc.domain.RateRepository
 import org.springframework.stereotype.Component
 
-<span class="fc" id="L7">@Component</span>
-<span class="fc" id="L8">class DbRateRepository(</span>
-<span class="fc" id="L9">    private val jpaRateRepository: JpaRateRepository</span>
+<span class="nc" id="L7">@Component</span>
+<span class="nc" id="L8">class DbRateRepository(</span>
+<span class="nc" id="L9">    private val jpaRateRepository: JpaRateRepository</span>
 ) : RateRepository {
     override fun save(rate: Rate) {
-<span class="fc" id="L12">        val entity = RateEntity.fromDomain(rate)</span>
-<span class="fc" id="L13">        jpaRateRepository.save(entity)</span>
-<span class="fc" id="L14">    }</span>
+<span class="nc" id="L12">        val entity = RateEntity.fromDomain(rate)</span>
+<span class="nc" id="L13">        jpaRateRepository.save(entity)</span>
+<span class="nc" id="L14">    }</span>
 
     override fun getByRestaurant(restaurantName: String) =
-<span class="fc" id="L17">        jpaRateRepository</span>
-<span class="fc" id="L18">            .getByRestaurantName(restaurantName)</span>
-<span class="fc" id="L19">            .map { RateEntity.fromEntity(it) }</span>
+<span class="nc" id="L17">        jpaRateRepository</span>
+<span class="nc" id="L18">            .getByRestaurantName(restaurantName)</span>
+<span class="nc" id="L19">            .map { RateEntity.fromEntity(it) }</span>
 
 
     override fun getById(id: String): Rate? {

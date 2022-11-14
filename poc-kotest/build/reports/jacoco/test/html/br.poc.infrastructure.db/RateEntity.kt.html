@@ -7,30 +7,30 @@ import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.Table
 
-<span class="fc" id="L10">@Entity</span>
+<span class="nc" id="L10">@Entity</span>
 @Table(name = &quot;[rate]&quot;)
-<span class="fc" id="L12">class RateEntity (</span>
-<span class="fc" id="L13">    @Id</span>
+<span class="nc" id="L12">class RateEntity (</span>
+<span class="nc" id="L13">    @Id</span>
     @Column(name = &quot;id&quot;)
-<span class="fc" id="L15">    val id: String,</span>
+<span class="nc" id="L15">    val id: String,</span>
 
-<span class="fc" id="L17">    @Column(name = &quot;restaurant_name&quot;)</span>
-<span class="fc" id="L18">    val restaurantName: String,</span>
+<span class="nc" id="L17">    @Column(name = &quot;restaurant_name&quot;)</span>
+<span class="nc" id="L18">    val restaurantName: String,</span>
 
-<span class="fc" id="L20">    @Column(name = &quot;rate&quot;)</span>
-<span class="fc" id="L21">    val rate: Int,</span>
+<span class="nc" id="L20">    @Column(name = &quot;rate&quot;)</span>
+<span class="nc" id="L21">    val rate: Int,</span>
 ) {
     companion object {
-<span class="fc" id="L24">        fun fromDomain(rate: Rate) = RateEntity(</span>
-<span class="fc" id="L25">            UUID.randomUUID().toString(),</span>
-<span class="fc" id="L26">            rate.restaurant,</span>
-<span class="fc" id="L27">            rate.value</span>
-<span class="fc" id="L28">        )</span>
+<span class="nc" id="L24">        fun fromDomain(rate: Rate) = RateEntity(</span>
+<span class="nc" id="L25">            UUID.randomUUID().toString(),</span>
+<span class="nc" id="L26">            rate.restaurant,</span>
+<span class="nc" id="L27">            rate.value</span>
+<span class="nc" id="L28">        )</span>
 
-<span class="fc" id="L30">        fun fromEntity(rate: RateEntity) = Rate(</span>
-<span class="fc" id="L31">            rate.restaurantName,</span>
-<span class="fc" id="L32">            rate.rate</span>
-<span class="fc" id="L33">        )</span>
+<span class="nc" id="L30">        fun fromEntity(rate: RateEntity) = Rate(</span>
+<span class="nc" id="L31">            rate.restaurantName,</span>
+<span class="nc" id="L32">            rate.rate</span>
+<span class="nc" id="L33">        )</span>
     }
 }
 
